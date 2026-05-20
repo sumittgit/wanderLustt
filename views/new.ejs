@@ -1,0 +1,43 @@
+<% layout("/layouts/boilerplate")%>
+<div class="row" >
+    <div class="col-8 offset-2">
+<form method="POST" action="/listing">
+
+    <h2>create a new listing</h2>
+<div class="mb-3">
+        <label for="title" class="form-label">title</label>
+    <input type="text" name="title" placeholder="enter your title" required class="form-control">
+</div>
+
+<div class="mb-3">
+     <label for="description" class="form-label">description</label>
+    <textarea type="text" name="description" placeholder="enter your description"required class="form-control" ></textarea>
+</div>
+    
+    <div class="mb-3">
+         <label for="image" class="form-label">Image's Url</label>
+    <input type="text" name="image" placeholder="enter your image url"required class="form-control">
+    </div>
+    
+   <div class="row">
+     <div class="mb-3 col-lg-4">
+         <label for="price" class="form-label">price</label>
+    <input type="number" name="price" placeholder="enter your price" required class="form-control">
+</div>
+    
+    <div class="mb-3 col-lg-8">
+         <label for="country" class="form-label">country</label>
+    <input type="text" name="country" placeholder="enter your country" required class="form-control">
+</div>
+   </div>
+<div class="mb-3">
+     <label for="location" class="form-label">location</label>
+    <input type="text" name="location" placeholder="enter your location" required class="form-control"><br>
+</div >
+
+    <button style="background-color:#fe424b  ; border: none; width: 8rem; height: 2.5rem; border-radius: 5px; color: aliceblue; " >Add</button>
+<br><br>
+</form>
+    
+</body>
+</div></div>

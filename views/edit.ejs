@@ -1,0 +1,36 @@
+<% layout("/layouts/boilerplate")%>
+<body>
+<div class="col-lg-8 offset-2">
+    <form method="POST" action="/listing/<%=updateitem._id%>?_method=PUT" >
+
+    <h2>edit a listing</h2>
+    <div class="mb-3">
+       <label for="title" class="form-label">title</label>
+    <input type="text" name="title" value="<%=updateitem.title%>" class="form-control" > 
+  </div>
+   <div class="mb-3">
+    <label for="description" class="form-label">description</label>
+    <textarea type="text" name="description" class="form-control"  ><%=updateitem.description%></textarea>
+    </div>
+     <div class="mb-3">
+      <label for="image" class="form-label">Image's Url</label>
+    <input type="string" name="image" value="<%=updateitem.image%>" class="form-control" >
+    </div>
+    <div class="mb-3">
+    <label for="price" class="form-label">price</label>
+    <input type="number" name="price" value="<%=updateitem.price%>" class="form-control" >
+    </div>
+      <div class="mb-3">
+         <label for="country" class="form-label">country</label>
+    <input type="text" name="country" value="<%=updateitem.country%>" class="form-control" >
+    </div>
+ <div class="mb-3">
+     <label for="location" class="form-label">location</label>
+    <input type="text" name="location" value="<%=updateitem.location%>" class="form-control" >
+    </div>
+ <button style="background-color:#fe424b  ; border: none; width: 8rem; height: 2.5rem; border-radius: 5px; color: aliceblue; " >Add</button>
+ <br><br>
+</form>
+</div>
+    
+</body>
