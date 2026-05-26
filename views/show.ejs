@@ -29,6 +29,21 @@
         <button class="offset-2" style="background-color:#fe424b  ; border: none; width: 6rem; height: 2.5rem; border-radius: 5px; color: aliceblue; " >delete </button>
     </form>
     </div>
+    <form  action="/listing/<%=ourListing._id%>/review"  method="post"  class="mb-3">
+    <div class="col-8 offset-2">
+    <hr>
+      <h3 > leave a review</h3>
+      <div mb-3 mt-3> 
+        <label for="rating"  class="form-label"> RATING</label><br>
+        <input type="range" class="form-range" name="review[rating]" id="rating"   min="1" max="5"/>
+      </div>
+      <div mb-3 mt-3> 
+        <label  > comment</label><br><br>
+        <textarea  class="form-control" name="review[comment]"> </textarea>
+      </div><br>
+       <button  style="background-color:#fe424b  ; border: none; width: 6rem; height: 2.5rem; border-radius: 5px; color: aliceblue; " >submit </button>
+    </div>
+    </form>
 </body>
 </div>
 
