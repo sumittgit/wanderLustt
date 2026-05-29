@@ -7,6 +7,7 @@ const path = require("path");
 const methodOverride = require("method-Override");
 const ejsMate = require("ejs-mate");
 const Review = require("./models/review.js");
+const review = require("./models/review.js");
 
 
 
@@ -69,7 +70,7 @@ app.get("/listing/new",(req,res) =>{
 // show 
 app.get("/listing/:id",async (req,res)=>{
     let {id} = req.params;
-   const ourListing = await listing.findById(id);
+   const ourListing = await listing.findById(id).populate("reviews");
    res.render("show.ejs", {ourListing});
 
 
@@ -104,7 +105,7 @@ app.delete("/listing/:id", async(req,res)=>{
 
 
 
-// to get the review request 
+// to get the review request git
 app.post("/listing/:id/review", async(req,res)=>{
     let Listing = await listing.findById(req.params.id);
     // console.log(Listing);
@@ -114,10 +115,21 @@ app.post("/listing/:id/review", async(req,res)=>{
    await newReview.save();
    await Listing.save();
    console.log("new review saved");
-   res.redirect("/listing");
+   res.redirect(`/listing/${Listing._id}`);
 
 
-})
+});
+
+
+// to get the delete review request 
+app.delete("/listing/:id/review/:reviewId", async(req,res)=>{
+    let {id,reviewId} = req.params;
+    await listing.findByIdAndUpdate(id,{$pull : {review:reviewId}});
+    await review.findByIdAndDelete(reviewId);
+    res.redirect(`/listing/${id}`)
+});
+
+
 
 
 
